@@ -5,13 +5,10 @@
     - npm init playwright@latest
 5) Install TypeScript Support via:
     - npm install -D typescript
-
 6) Install the following extensions from marketplace
     - Playwright Test for VSCode - allows debugging with IDE and Playwright
     - Cucumber (Gherkin) Full Support - Add Cucumber and Gherkin Support
-
-7) Clone Repository in gitlab evolve/qa-evolve-training-sandbox-playwright accessing via Personal Access Token     
-
+7) Clone Repository in github (https://github.com/Gans79/PlaywrightBDD)     
 8) To link feature file to steps via VSCode - 
     Create a.vscode directory and settings.json file
     add the following json
@@ -27,10 +24,8 @@
       "other": true
     }
   }    
-
 9) Install playwright-bdd - https://vitalets.github.io/playwright-bdd/#/
     npm i -D playwright-bdd@latest
-    
 10) To configure defineBDDConfig 
     - playwright.config.ts - add the following
     import { defineBddConfig } from 'playwright-bdd';
@@ -44,7 +39,6 @@
     export default defineConfig({
     testDir,
   )]
-
 11) To run tests of specific tags
     i) Generate the tests via command below this will generate executable test code in .features-gen directory
         npx bddgen --tags '@demo'
@@ -58,7 +52,6 @@
     example via command line - powershell: 
         npx bddgen --tags '@demo' ; npx playwright test --headed
         npx bddgen --tags '@demo' ; npx playwright test --debug
-
 12) To run on different browsers - Edit the following section of playwright.config.ts
  projects: [
 
@@ -66,13 +59,6 @@
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
- ]
-
- 13) Generate Test Report with Video (Per Run) and Screenshot (On Failure)
- video & screenshots configured in playwright.config.ts
-     //Video Settings
-    video: 'on',    
-    //screenshot on failure
-    screenshot: 'only-on-failure'
-
-    Generate report via command: npx playwright show-report
+ ]git s
+ 13) Generate Test Report
+     npx playwright test --reporter=html npx playwright show-report
